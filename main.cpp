@@ -30,8 +30,6 @@ int Player::getScore() {
 
 int main(int argc, char *argv[])
 {
-  //std::vector<std::string> names;
-  //std::vector<int> scores;
   std::vector<Player> allPlayers;
   if( argc > 1 )
   {
@@ -44,7 +42,6 @@ int main(int argc, char *argv[])
 	  newPlayer.addName(argv[i]);
 	  allPlayers.push_back(newPlayer);
 	  
-	  //allPlayers.push_back(argv[i]);
     }
 
     //Get player scores from user input
