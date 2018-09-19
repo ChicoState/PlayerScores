@@ -21,30 +21,43 @@ int main(int argc, char *argv[])
 {
   std::vector<std::string> names;
   std::vector<int> scores;
+  std::vector<Player> players;
 
   if( argc > 1 )
   {
     //Collect player names from command-line arguments
     for(int i=1; i<argc; i++)
     {
+      Player temp(argv[i]);
+      players.push_back(temp);
       names.push_back(argv[i]);
     }
 
     //Get player scores from user input
-    scores.resize(names.size());
+    for(unsigned int i = 0; i < players.size(); i++) {
+      int tempScore;
+      std::cout << "Score for " << players[i].getName() <<": ";
+      std::cin >> tempScore;
+      players[i].setScore(tempScore);
+    }
+    /*scores.resize(names.size());
     for(int i=0; i<names.size(); i++)
     {
       std::cout<<"Score for "<<names[i]<<": ";
       std::cin>>scores[i];
-    }
+    }*/
 
     //Print summary
     std::cout<<"### SCOREBOARD ###\n";
-    for(int i=0; i<names.size(); i++)
+    for(unsigned int i = 0; i < players.size(); i++) {
+      std::cout<<players[i].getName()<<"  ";
+      std::cout<<players[i].getScore()<<std::endl;
+    }
+    /*for(int i=0; i<names.size(); i++)
     {
       std::cout<<names[i]<<"  ";
       std::cout<<scores[i]<<std::endl;
-    }
+    }*/
   }
   else
   {
