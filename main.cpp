@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
   if( argc > 1 )
   {
 	
-
     //Collect player names from command-line arguments
     for(int i=1; i<argc; i++)
     {
