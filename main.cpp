@@ -1,17 +1,36 @@
 #include <iostream>
 #include <vector>
 
+class Player
+{
+  public:
+    string get_name();
+    int get_score();
+    Player(string name, int score)
+    {
+      m_name = name;
+      m_score = score;
+    }
+  private:
+    string m_name;
+    int m_score;
+}
+
 int main(int argc, char *argv[])
 {
-  std::vector<std::string> names;
-  std::vector<int> scores;
-
+  //std::vector<std::string> names;
+  //std::vector<int> scores;
+  Player *p;
+  vector<*p> players;
+  int score = 0;
+  string name;
   if( argc > 1 )
   {
     //Collect player names from command-line arguments
     for(int i=1; i<argc; i++)
     {
-      names.push_back(argv[i]);
+      //names.push_back(argv[i]);
+      p.players(argv[i]);
     }
 
     //Get player scores from user input
