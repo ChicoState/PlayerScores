@@ -1,6 +1,22 @@
 #include <iostream>
 #include <vector>
 
+class Player {
+  public:
+    Player();
+    Player(std::string name);
+    ~Player();
+    void setScore(int score);
+    int getScore();
+    void setName(std::string name);
+    std::string getName();
+  private:
+    std::string name_;
+    int score_;
+
+};
+
+
 int main(int argc, char *argv[])
 {
   std::vector<std::string> names;
@@ -38,4 +54,36 @@ int main(int argc, char *argv[])
   }
 
   return 0;
+}
+
+Player::Player() {
+  name_ = "";
+  score_ = 0;
+}
+
+Player::Player(std::string name) {
+  name_ = name;
+  score_ = 0;
+}
+
+Player::~Player() {
+  //Does nothing
+}
+
+void Player::setScore(int score) {
+  score_ = score;
+  return;
+}
+
+int Player::getScore() {
+  return score_;
+}
+
+void Player::setName(std::string name) {
+  name_ = name;
+  return;
+}
+
+std::string Player::getName() {
+  return name_;
 }
