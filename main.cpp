@@ -3,31 +3,35 @@
 
 int main(int argc, char *argv[])
 {
-  std::vector<std::string> names;
-  std::vector<int> scores;
+    struct data {
+    std::vector<std::string> names;
+    std::vector<int> scores;
+    } players;
+  //std::vector<std::string> names;
+  //std::vector<int> scores;
 
   if( argc > 1 )
   {
     //Collect player names from command-line arguments
     for(int i=1; i<argc; i++)
     {
-      names.push_back(argv[i]);
+      players.names.push_back(argv[i]);
     }
 
     //Get player scores from user input
-    scores.resize(names.size());
-    for(int i=0; i<names.size(); i++)
+    players.scores.resize(players.names.size());
+    for(int i=0; i<players.names.size(); i++)
     {
-      std::cout<<"Score for "<<names[i]<<": ";
-      std::cin>>scores[i];
+      std::cout<<"Score for "<<players.names[i]<<": ";
+      std::cin>>players.scores[i];
     }
 
     //Print summary
     std::cout<<"### SCOREBOARD ###\n";
-    for(int i=0; i<names.size(); i++)
+    for(int i=0; i<players.names.size(); i++)
     {
-      std::cout<<names[i]<<"  ";
-      std::cout<<scores[i]<<std::endl;
+      std::cout<<players.names[i]<<"  ";
+      std::cout<<players.scores[i]<<std::endl;
     }
   }
   else
