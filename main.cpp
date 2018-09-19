@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+//Class used to contain players and their scores
 class Players
 {
   public:
