@@ -1,6 +1,16 @@
 #include <iostream>
 #include <vector>
 
+class Player
+{
+  public:
+
+  Player(std::string name) : name(name), score(0) {}
+
+  std::string name;
+  int score;
+};
+
 int main(int argc, char *argv[])
 {
   std::vector<std::string> names;
