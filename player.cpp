@@ -1,10 +1,12 @@
 #include "player.h"
 
-Player(std::std::string name, int score):
-  name(name), score(score)
+Player(){};
+
+Player(std::string aname, int ascore):
+  name(aname), score(ascore)
   {}
 
-std::std::string GetName(){
+std::string GetName(){
   return name;
 }
 

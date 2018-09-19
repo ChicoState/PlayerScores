@@ -1,15 +1,15 @@
 #include <iostream>
-#ifndef Player
-#define Player
+#pragma once
+
 class Player{
   private:
     std::string name;
     int score;
   public:
     Player();
+    Player(std::string a, int b);
     int GetScore();
     std::string GetName();
-}
+};
 
-
-#endif /* end of include guard: Player */
+ /* end of include guard: Player */
