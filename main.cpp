@@ -1,33 +1,49 @@
 #include <iostream>
 #include <vector>
 
+class Player {
+    private:
+    
+        std::string name;
+        int score;
+    
+    public:
+
+        std::string get_name(){ return name; };
+        int get_score(){ return score; };
+        void set_score(int x){ score = x; };
+        void set_name(std::string n){ name = n; };
+};
+
 int main(int argc, char *argv[])
 {
-  std::vector<std::string> names;
-  std::vector<int> scores;
+  std::vector<Player> players;
 
   if( argc > 1 )
   {
-    //Collect player names from command-line arguments
-    for(int i=1; i<argc; i++)
+    //Collect player players from command-line arguments
+    for(int i=1; i<argc; i++) 
     {
-      names.push_back(argv[i]);
+      Player p;
+      p.set_name(argv[i]);
+      players.push_back(p);
     }
 
-    //Get player scores from user input
-    scores.resize(names.size());
-    for(int i=0; i<names.size(); i++)
+    for(int i=0; i<players.size(); i++)
     {
-      std::cout<<"Score for "<<names[i]<<": ";
-      std::cin>>scores[i];
+      int x = 0;
+      std::cout<<"Score for "<<players[i].get_name()<<": ";
+      std::cin>>x;
+
+      players[i].set_score(x);
     }
 
     //Print summary
     std::cout<<"### SCOREBOARD ###\n";
-    for(int i=0; i<names.size(); i++)
+    for(int i=0; i<players.size(); i++)
     {
-      std::cout<<names[i]<<"  ";
-      std::cout<<scores[i]<<std::endl;
+      std::cout<<players[i].get_name()<<"  ";
+      std::cout<<players[i].get_score()<<std::endl; 
     }
   }
   else
