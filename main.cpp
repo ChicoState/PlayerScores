@@ -1,33 +1,47 @@
 #include <iostream>
 #include <vector>
+using namespace std;
+
+class Player
+{
+ public:
+  string name;
+  int score;
+};
 
 int main(int argc, char *argv[])
 {
-  std::vector<std::string> names;
-  std::vector<int> scores;
+
+
+  vector<Player> players_vector;
 
   if( argc > 1 )
   {
     //Collect player names from command-line arguments
     for(int i=1; i<argc; i++)
     {
-      names.push_back(argv[i]);
+       Player myPlayer;
+       string name = argv[i];
+       myPlayer.name = name;
+       players_vector.push_back(myPlayer);
     }
 
     //Get player scores from user input
-    scores.resize(names.size());
-    for(int i=0; i<names.size(); i++)
+    //scores.resize(names.size());
+    for(int i=0; i<players_vector.size(); i++)
     {
-      std::cout<<"Score for "<<names[i]<<": ";
-      std::cin>>scores[i];
+      int score;
+      cout<<"Score for "<<players_vector[i].name<<": ";
+      cin>>score;
+      players_vector[i].score = score;
     }
 
     //Print summary
-    std::cout<<"### SCOREBOARD ###\n";
-    for(int i=0; i<names.size(); i++)
+    cout<<"### SCOREBOARD ###\n";
+    for(int i=0; i<players_vector.size(); i++)
     {
-      std::cout<<names[i]<<"  ";
-      std::cout<<scores[i]<<std::endl;
+      cout<<players_vector[i].name<<"  ";
+      cout<<players_vector[i].score<<endl;
     }
   }
   else
