@@ -1,34 +1,47 @@
+/**Auth: Ryan Saitta
+Date: 9/19/18**/
+
 #include <iostream>
 #include <vector>
 
+class Player{
+	private: 
+		std::string name;
+		int score;
+	public:
+		Player(string in_name):name(in_name);
+		void addScore(int player){
+			std::cout<<"Score for "<< name<<": ";
+			std::cin>>score;}
+    }
+		
+};
+
 int main(int argc, char *argv[])
 {
-  std::vector<std::string> names;
-  std::vector<int> scores;
-
+	std::vector<Player> Players;
   if( argc > 1 )
   {
     //Collect player names from command-line arguments
     for(int i=1; i<argc; i++)
     {
-      names.push_back(argv[i]);
+      Players.push_back(Player(argv[i]));
     }
 
     //Get player scores from user input
-    scores.resize(names.size());
-    for(int i=0; i<names.size(); i++)
+    for(int i=0; i<argc-1; i++)
     {
-      std::cout<<"Score for "<<names[i]<<": ";
-      std::cin>>scores[i];
+      Players[i].addScore();
     }
 
     //Print summary
-    std::cout<<"### SCOREBOARD ###\n";
-    for(int i=0; i<names.size(); i++)
-    {
-      std::cout<<names[i]<<"  ";
-      std::cout<<scores[i]<<std::endl;
-    }
+	std::cout<<"### SCOREBOARD ###\n";
+		for(int i=0; i<names.size(); i++)
+		{
+			std::cout<<names[i]<<"  ";
+			std::cout<<scores[i]<<std::endl;
+		}
+	
   }
   else
   {
