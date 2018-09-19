@@ -1,4 +1,5 @@
-/**Auth: Ryan Saitta**/
+/**Auth: Ryan Saitta
+Date: 9/19/18**/
 
 #include <iostream>
 #include <vector>
